@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "X 关注关系助手",
+  "version": "1.1.0",
+  "description": "在 X 页面本地扫描粉丝与关注关系，识别未回关、取关和新增粉丝。",
+  "permissions": ["storage", "unlimitedStorage", "activeTab"],
+  "host_permissions": ["https://x.com/*"],
+  "action": {
+    "default_title": "打开 X 关注关系助手"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*"],
+      "js": ["core.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
